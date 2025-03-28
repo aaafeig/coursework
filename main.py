@@ -1,11 +1,14 @@
-import json
-from datetime import datetime
+import pandas as pd
 
-from src.views import write_in_json
+from src.views import *
+
 
 
 def main():
-    write_in_json()
+    df = pd.read_excel("data/operations.xlsx")
+    operations = df.to_dict(orient="records")
+    for op in operations[:5]:
+        print(op)
 
 if __name__ == "__main__":
     main()
