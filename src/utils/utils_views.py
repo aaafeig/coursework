@@ -9,7 +9,7 @@ import requests
 from dotenv import load_dotenv
 
 
-loger = logging.getLogger("log_views")
+loger = logging.getLogger(__name__)
 file_handler = logging.FileHandler("logs/views.logs", mode="w", encoding="utf-8")
 file_formatter = logging.Formatter(
     "%(asctime)s - %(name)s - %(levelname)s: %(message)s"
@@ -164,7 +164,6 @@ def find_period_of_time(date: str, setting_time: str = "W") -> list[dict]:
 
 
 def transfers_and_cash(operations: list[dict]) -> list[dict]:
-    """Фильтрует операции по категориям 'Наличные' и 'Переводы' и сортирует по убыванию суммы."""
     tr_and_cash = [
         {
             "category": op.get("Категория", ""),
