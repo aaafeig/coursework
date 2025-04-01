@@ -1,7 +1,7 @@
-from src.utils import *
+from src.utils.utils_views import *
 
 
-def write_in_json(time_setting):
+def write_in_json_gl(time_setting):
     operations = filtered_operations(time_setting)
     greet = greetings()
     card_numbers, amounts, cashbacks = info_about_operations(operations)
@@ -37,7 +37,29 @@ def write_in_json(time_setting):
         "stock_prices": stock_data,
     }
 
-    with open("data/information.json", "w", encoding="utf-8") as file:
+    with open("data/information-Glavnaya.json", "w", encoding="utf-8") as file:
         json.dump(information_json, file, ensure_ascii=False, indent=4)
 
 
+def write_in_json_sob(date: str, period_of_time: str = "W"):
+    operations = find_period_of_time(date, period_of_time)
+    currency_data, stock_data = currency_rates("data/user_settings.json")
+
+    tr_and_ch = transfers_and_cash(operations)
+    total_amount_ex, transactions_for_circle, total_amount_ic, transactions_income = (
+        count_amount(operations)
+    )
+
+    information_json = {
+        "expenses": {
+            "total_amount": total_amount_ex,
+            "main": transactions_for_circle,
+            "transfers_and_cash": tr_and_ch,
+        },
+        "income": {"total_amount": total_amount_ic, "main": transactions_income},
+        "currency_rates": currency_data,
+        "stock_prices": stock_data,
+    }
+
+    with open("data/information-Sobitia.json", "w", encoding="utf-8") as file:
+        json.dump(information_json, file, ensure_ascii=False, indent=4)

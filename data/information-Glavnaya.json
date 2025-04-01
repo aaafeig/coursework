@@ -1,0 +1,275 @@
+{
+    "greeting": "Добрый день",
+    "cards": [
+        {
+            "last_digits": "4556",
+            "total_spent": 164.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 114.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "----",
+            "total_spent": 12006.4,
+            "cashback": 0
+        },
+        {
+            "last_digits": "----",
+            "total_spent": 30000.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 44.79,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 170.9,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 181.6,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 221.8,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 1602.4,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 285.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 278.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 250.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 250.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 285.09,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 69.8,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 55.9,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 331.8,
+            "cashback": 0
+        },
+        {
+            "last_digits": "4556",
+            "total_spent": 1000.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 360.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 38.59,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 315.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 368.3,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 275.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 24491.27,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 5075.71,
+            "cashback": 0
+        },
+        {
+            "last_digits": "4556",
+            "total_spent": 250.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 221.27,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 58.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 389.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 416.3,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 208.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "----",
+            "total_spent": 600.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 69.9,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 296.8,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 389.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 1596.5,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 116.16,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 88.8,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 220.27,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 250.0,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 61.4,
+            "cashback": 0
+        },
+        {
+            "last_digits": "7197",
+            "total_spent": 170.9,
+            "cashback": 0
+        }
+    ],
+    "top_transactions": [
+        {
+            "date": "09.05.2018",
+            "amount": 30000.0,
+            "category": "Пополнения",
+            "description": "Перевод с карты"
+        },
+        {
+            "date": "03.05.2018",
+            "amount": 24491.27,
+            "category": "Другое",
+            "description": "ГУП ВЦКП ЖХ"
+        },
+        {
+            "date": "09.05.2018",
+            "amount": 12006.4,
+            "category": "Пополнения",
+            "description": "Перевод с карты"
+        },
+        {
+            "date": "03.05.2018",
+            "amount": 5075.71,
+            "category": "Другое",
+            "description": "ГУП ВЦКП ЖХ"
+        },
+        {
+            "date": "09.05.2018",
+            "amount": 1602.4,
+            "category": "Различные товары",
+            "description": "Детский Мир"
+        }
+    ],
+    "currency_rates": [
+        {
+            "currency": "USD",
+            "rate": 84.75
+        }
+    ],
+    "stock_prices": [
+        {
+            "stock": "AAPL",
+            "price": 222.13
+        },
+        {
+            "stock": "AMZN",
+            "price": 190.26
+        },
+        {
+            "stock": "GOOGL",
+            "price": 154.64
+        },
+        {
+            "stock": "MSFT",
+            "price": 375.39
+        },
+        {
+            "stock": "TSLA",
+            "price": 259.16
+        }
+    ]
+}
