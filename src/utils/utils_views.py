@@ -28,7 +28,7 @@ operations_df = df.to_dict(orient="records")
 
 
 def get_date_range(date: str) -> tuple[str, str]:
-    date_obj = datetime.strptime(date, "%d-%m-%Y %H:%M:%S")
+    date_obj = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
     start_of_month = date_obj.replace(day=1)
     return start_of_month.strftime("%d.%m.%Y"), date_obj.strftime("%d.%m.%Y")
 
@@ -132,7 +132,7 @@ def currency_rates(user_settings: str) -> tuple[list, list]:
 def find_period_of_time(date: str, setting_time: str = "W") -> list[dict]:
     date_obj = datetime.strptime(date, "%d-%m-%Y")
 
-    if setting_time == "W":  # Неделя
+    if setting_time == "W":
         start = date_obj - timedelta(days=date_obj.weekday())
         end = start + timedelta(days=6)
 
@@ -142,7 +142,7 @@ def find_period_of_time(date: str, setting_time: str = "W") -> list[dict]:
         next_year = date_obj.year + (date_obj.month // 12)
         end = datetime(next_year, next_month, 1) - timedelta(days=1)
 
-    elif setting_time == "Y":  # Год
+    elif setting_time == "Y":
         start = datetime(date_obj.year, 1, 1)
         end = datetime(date_obj.year, 12, 31)
 
