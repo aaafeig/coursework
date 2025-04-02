@@ -1,8 +1,23 @@
 import json
+import logging
+import math
 import re
 
 import pandas as pd
+
+
 from src.utils.utils_services import filtered_by_ym
+
+loger = logging.getLogger(__name__)
+file_handler = logging.FileHandler("logs/services.logs", mode="w", encoding="utf-8")
+file_formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s: %(message)s"
+)
+file_handler.setFormatter(file_formatter)
+loger.addHandler(file_handler)
+loger.setLevel(logging.DEBUG)
+
+
 
 
 def write_profitable_cashback_categories(data: str, year: str, month: str):
@@ -19,11 +34,24 @@ def write_profitable_cashback_categories(data: str, year: str, month: str):
 
     sorted_services_cashback = dict(sorted(services_cashback.items(), key=lambda x: x[1], reverse=True))
 
-    with open("data/services-cashback.json", "w", encoding="utf-8") as file:
-        json.dump(sorted_services_cashback, file, ensure_ascii=False, indent=4)
+    return json.dumps(sorted_services_cashback,  ensure_ascii=False, indent=4)
+
+def investment_bank(month: str, transactions: list[dict[str, any]], limit: int) -> float:
+    total_savings = 0
+
+    filtered_trans = [op for op in transactions if op['Дата операции'] == month]
+    for transaction in filtered_trans:
+        amount = transaction.get("Сумма операции", 0)
+        rounded_amount = math.ceil(amount / limit) * limit
+        savings = rounded_amount - amount
+        total_savings += savings
+    loger.debug(f"Проверка проходила по критериям: {transactions[0]['Дата операции']} равно {month}")
+
+    return round(total_savings, 2)
 
 
-def search_to_str(list_tran: list[dict], str_search: str) -> list[dict]:
+
+def search_to_str(list_tran: list[dict], str_search: str):
     pattern = re.compile(str_search, re.IGNORECASE)
     operations =  [
         op for op in list_tran
@@ -39,5 +67,17 @@ def names_find(data: list[dict]):
         if op.get("Категория") == "Переводы" and pattern.search(str(op.get("Описание", "")))
     ]
 
-    with open("data/services-names.json", "w", encoding="utf-8") as file:
-        json.dump(operations, file, ensure_ascii=False, indent=4)
+    return json.dumps(operations, ensure_ascii=False, indent=4)
+
+
+def tel_num_find(data):
+    pattern = re.compile(r"\+7\s\d{3}\s\d{2,3}-\d{2}-\d{2}")
+
+    phone_operation = [
+        op for op in data
+        if pattern.search(str(op.get("Описание", "")))
+    ]
+
+    return json.dumps(phone_operation, ensure_ascii=False, indent=4)
+
+
