@@ -21,6 +21,9 @@ loger.setLevel(logging.DEBUG)
 
 
 def write_profitable_cashback_categories(data: str, year: str, month: str):
+    """
+    Функция возращает json о выгодных кэшбеках
+    """
     operations = filtered_by_ym(data, year, month)
     services_cashback = {}
     for ops in operations:
@@ -37,6 +40,9 @@ def write_profitable_cashback_categories(data: str, year: str, month: str):
     return json.dumps(sorted_services_cashback,  ensure_ascii=False, indent=4)
 
 def investment_bank(month: str, transactions: list[dict[str, any]], limit: int) -> float:
+    """
+    Функция округляет сумму до лимита и возвращает разницу между суммой и округленной суммой
+    """
     total_savings = 0
 
     filtered_trans = [op for op in transactions if op['Дата операции'] == month]
@@ -52,6 +58,9 @@ def investment_bank(month: str, transactions: list[dict[str, any]], limit: int) 
 
 
 def search_to_str(list_tran: list[dict], str_search: str):
+    """
+    Функция для поиска всех транзакций с введенной категорией
+    """
     pattern = re.compile(str_search, re.IGNORECASE)
     operations =  [
         op for op in list_tran
@@ -60,6 +69,9 @@ def search_to_str(list_tran: list[dict], str_search: str):
     return operations
 
 def names_find(data: list[dict]):
+    """
+    Функция для поиска всех транзакций с введенным именем
+    """
     pattern = re.compile(r"\b[А-ЯЁ][а-яё]+\s[А-ЯЁ]\.", re.IGNORECASE)
 
     operations = [
@@ -71,6 +83,9 @@ def names_find(data: list[dict]):
 
 
 def tel_num_find(data):
+    """
+    Функция для поиска всех транзакциях с введеным номером телефона
+    """
     pattern = re.compile(r"\+7\s\d{3}\s\d{2,3}-\d{2}-\d{2}")
 
     phone_operation = [

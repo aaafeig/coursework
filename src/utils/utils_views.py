@@ -41,7 +41,7 @@ def filtered_operations(time: str) -> list[dict]:
     filtered_op = [
         op
         for op in operations_df
-        if start_date <= pd.to_datetime(op["Дата платежа"], dayfirst=True) <= end_date
+        if start_date <= pd.to_datetime(op["Дата операции"], dayfirst=True) <= end_date
     ]
     return filtered_op
 
@@ -130,7 +130,7 @@ def currency_rates(user_settings: str) -> tuple[list, list]:
 
 
 def find_period_of_time(date: str, setting_time: str = "W") -> list[dict]:
-    date_obj = datetime.strptime(date, "%d-%m-%Y")
+    date_obj = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
 
     if setting_time == "W":
         start = date_obj - timedelta(days=date_obj.weekday())
@@ -157,7 +157,7 @@ def find_period_of_time(date: str, setting_time: str = "W") -> list[dict]:
     interval_time = [
         op
         for op in operations_df
-        if start <= pd.to_datetime(op["Дата платежа"], dayfirst=True) <= end
+        if start <= pd.to_datetime(op["Дата операции"], dayfirst=True) <= end
     ]
 
     return interval_time

@@ -3,7 +3,11 @@ from src.utils.utils_views import *
 
 from collections import defaultdict
 
-def write_json_gl(time_setting):
+def write_json_gl(time_setting: str):
+    """
+    Функция возращает json, отфильтрованные транзакции от введеной даты до начала месяца
+    с информацией о картах (траты, кэшбек), топ 5 транзакций и курс валют и акций
+    """
     operations = filtered_operations(time_setting)
     greet = greetings()
     card_numbers, amounts, cashback = info_about_operations(operations)
@@ -44,6 +48,12 @@ def write_json_gl(time_setting):
 
 
 def write_json_sob(date: str, period_of_time: str = "W"):
+    """
+    Функция фильтрует транзакции по дате и второму параметру, который определяет диапозон
+    (неделя, месяу, год, все траназацкии до даты и возращает json с информацией о расходах, поступлениях
+    и курс валют с акций)
+    """
+
     operations = find_period_of_time(date, period_of_time)
     currency_data, stock_data = currency_rates("data/user_settings.json")
 
@@ -54,7 +64,7 @@ def write_json_sob(date: str, period_of_time: str = "W"):
 
     information_json = {
         "expenses": {
-            "total_amount": total_amount_ex,
+            "total_amount": round(total_amount_ex, 2),
             "main": transactions_for_circle,
             "transfers_and_cash": tr_and_ch,
         },
