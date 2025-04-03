@@ -8,7 +8,6 @@ import pandas as pd
 import requests
 from dotenv import load_dotenv
 
-
 loger = logging.getLogger(__name__)
 file_handler = logging.FileHandler("logs/views.logs", mode="w", encoding="utf-8")
 file_formatter = logging.Formatter(

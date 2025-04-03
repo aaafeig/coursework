@@ -1,7 +1,19 @@
-from src.utils.utils_views import *
-
-
+import json
 from collections import defaultdict
+
+import pandas as pd
+
+from src.utils.utils_views import (
+    filtered_operations,
+    greetings,
+    info_about_operations,
+    top5_tran,
+    currency_rates,
+    find_period_of_time,
+    transfers_and_cash,
+    count_amount
+)
+
 
 def write_json_gl(time_setting: str):
     """
@@ -22,7 +34,11 @@ def write_json_gl(time_setting: str):
         card_data[last_digits]["cashback"] += cash if pd.notna(cash) else 0
 
     cards_info = [
-        {"last_digits": card, "total_spent": round(data["total_spent"], 2), "cashback": round(data["cashback"], 2)}
+        {
+            "last_digits": card,
+            "total_spent": round(data["total_spent"], 2),
+            "cashback": round(data["cashback"], 2),
+        }
         for card, data in card_data.items()
     ]
 
