@@ -38,6 +38,3 @@ warn_return_any = true
 exclude = "venv"
 
 
-[flake8]
-max-line-length = 119
-exclude = ".git"

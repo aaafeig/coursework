@@ -71,7 +71,7 @@ def search_to_str(list_tran: list[dict], str_search: str):
         if pattern.search(str(op.get("Категория", "")))
         or pattern.search(str(op.get("Описание", "")))
     ]
-    return operations
+    return json.dumps(operations, ensure_ascii=False, indent=4)
 
 
 def names_find(data: list[dict]):
@@ -90,7 +90,7 @@ def names_find(data: list[dict]):
     return json.dumps(operations, ensure_ascii=False, indent=4)
 
 
-def tel_num_find(data):
+def tel_num_find(data: list[dict]):
     """
     Функция для поиска всех транзакциях с введеным номером телефона
     """

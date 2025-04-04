@@ -11,7 +11,7 @@ from src.utils.utils_views import (
     currency_rates,
     find_period_of_time,
     transfers_and_cash,
-    count_amount
+    count_amount,
 )
 
 

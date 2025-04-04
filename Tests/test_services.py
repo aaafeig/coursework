@@ -1,12 +1,13 @@
 import json
-from unittest.mock import patch, Mock
+from unittest.mock import patch
 from src.services import (
     write_profitable_cashback_categories,
     investment_bank,
     search_to_str,
     names_find,
-    tel_num_find
+    tel_num_find,
 )
+
 
 def test_write_profitable_cashback_categories():
     data = [
@@ -17,8 +18,11 @@ def test_write_profitable_cashback_categories():
     ]
     with patch("src.services.filtered_by_ym", return_value=data):
         result = write_profitable_cashback_categories("dummy_data", "2023", "05")
-        expected = json.dumps({"Продукты": 70, "Одежда": 30}, ensure_ascii=False, indent=4)
+        expected = json.dumps(
+            {"Продукты": 70, "Одежда": 30}, ensure_ascii=False, indent=4
+        )
         assert result == expected
+
 
 def test_investment_bank():
     transactions = [
@@ -29,6 +33,7 @@ def test_investment_bank():
     result = investment_bank("2023-05", transactions, 100)
     assert result == (300 - 245) + (400 - 380)  # 55 + 20 = 75
 
+
 def test_search_to_str():
     transactions = [
         {"Категория": "Рестораны", "Описание": "Ужин в кафе"},
@@ -37,6 +42,7 @@ def test_search_to_str():
     result = search_to_str(transactions, "кафе")
     assert len(result) == 1
     assert result[0]["Категория"] == "Рестораны"
+
 
 def test_names_find():
     transactions = [
@@ -48,6 +54,7 @@ def test_names_find():
     expected = json.dumps(transactions[:2], ensure_ascii=False, indent=4)
     assert result == expected
 
+
 def test_tel_num_find():
     transactions = [
         {"Описание": "Звонок +7 999 123-45-67"},
@@ -55,5 +62,7 @@ def test_tel_num_find():
         {"Описание": "Перевод на +7 495 678-90-12"},
     ]
     result = tel_num_find(transactions)
-    expected = json.dumps([transactions[0], transactions[2]], ensure_ascii=False, indent=4)
+    expected = json.dumps(
+        [transactions[0], transactions[2]], ensure_ascii=False, indent=4
+    )
     assert result == expected
