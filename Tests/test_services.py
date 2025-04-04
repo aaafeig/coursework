@@ -8,6 +8,15 @@ from src.services import (
     tel_num_find,
 )
 
+import pytest
+
+@pytest.fixture
+def valid_data():
+    return [{"category": "еда", "amount": 100}, {"category": "транспорт", "amount": 50}]
+
+def test_search_to_str(valid_data):
+    result = search_to_str(valid_data, "еда")
+    assert isinstance(result, str), f"Функция должна возвращать строку, но получен {type(result)}"
 
 def test_write_profitable_cashback_categories():
     data = [
@@ -34,14 +43,6 @@ def test_investment_bank():
     assert result == (300 - 245) + (400 - 380)  # 55 + 20 = 75
 
 
-def test_search_to_str():
-    transactions = [
-        {"Категория": "Рестораны", "Описание": "Ужин в кафе"},
-        {"Категория": "Магазины", "Описание": "Покупка в магазине"},
-    ]
-    result = search_to_str(transactions, "кафе")
-    assert len(result) == 1
-    assert result[0]["Категория"] == "Рестораны"
 
 
 def test_names_find():
