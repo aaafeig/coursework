@@ -10,7 +10,7 @@ def valid_datetime():
 
 @pytest.fixture
 def category():
-    return "еда"
+    return "Рестораны"
 
 def test_spending_by_category(valid_datetime, category):
     result = spending_by_category(df, category, valid_datetime)
