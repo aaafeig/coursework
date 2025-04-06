@@ -3,17 +3,26 @@ from unittest.mock import patch
 
 import pytest
 
-from src.services import (investment_bank, names_find, search_to_str,
-                          tel_num_find, write_profitable_cashback_categories)
+from src.services import (
+    investment_bank,
+    names_find,
+    search_to_str,
+    tel_num_find,
+    write_profitable_cashback_categories,
+)
 
 
 @pytest.fixture
 def valid_data():
     return [{"category": "еда", "amount": 100}, {"category": "транспорт", "amount": 50}]
 
+
 def test_search_to_str(valid_data):
     result = search_to_str(valid_data, "еда")
-    assert isinstance(result, str), f"Функция должна возвращать строку, но получен {type(result)}"
+    assert isinstance(
+        result, str
+    ), f"Функция должна возвращать строку, но получен {type(result)}"
+
 
 def test_write_profitable_cashback_categories():
     data = [
@@ -38,8 +47,6 @@ def test_investment_bank():
     ]
     result = investment_bank("2023-05", transactions, 100)
     assert result == (300 - 245) + (400 - 380)  # 55 + 20 = 75
-
-
 
 
 def test_names_find():
