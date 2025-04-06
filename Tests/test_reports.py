@@ -1,6 +1,8 @@
-import pytest
 import pandas as pd
+import pytest
+
 from src.reports import spending_by_category, spending_by_weekday
+
 df = pd.read_excel("data/operations.xlsx")
 
 @pytest.fixture

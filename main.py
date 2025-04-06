@@ -1,7 +1,9 @@
-from src.reports import spending_by_category, spending_by_weekday
-from src.services import write_profitable_cashback_categories, investment_bank, search_to_str, names_find, tel_num_find
-from src.views import write_json_gl, write_json_sob
 import pandas as pd
+
+from src.reports import spending_by_category, spending_by_weekday
+from src.services import (investment_bank, names_find, search_to_str,
+                          tel_num_find, write_profitable_cashback_categories)
+from src.views import write_json_gl, write_json_sob
 
 df = pd.read_excel("data/operations.xlsx")
 operations_df = df.to_dict(orient="records")

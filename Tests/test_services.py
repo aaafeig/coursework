@@ -1,14 +1,11 @@
 import json
 from unittest.mock import patch
-from src.services import (
-    write_profitable_cashback_categories,
-    investment_bank,
-    search_to_str,
-    names_find,
-    tel_num_find,
-)
 
 import pytest
+
+from src.services import (investment_bank, names_find, search_to_str,
+                          tel_num_find, write_profitable_cashback_categories)
+
 
 @pytest.fixture
 def valid_data():

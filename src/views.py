@@ -3,16 +3,10 @@ from collections import defaultdict
 
 import pandas as pd
 
-from src.utils.utils_views import (
-    filtered_operations,
-    greetings,
-    info_about_operations,
-    top5_tran,
-    currency_rates,
-    find_period_of_time,
-    transfers_and_cash,
-    count_amount,
-)
+from src.utils.utils_views import (count_amount, currency_rates,
+                                   filtered_operations, find_period_of_time,
+                                   greetings, info_about_operations, top5_tran,
+                                   transfers_and_cash)
 
 
 def write_json_gl(time_setting: str):
